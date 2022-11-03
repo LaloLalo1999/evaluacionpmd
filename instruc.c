@@ -121,10 +121,58 @@ int main() {
     // Requisitos funcionales:
     // Recordemos que nuestro objetivo es crear un programa que permita al usuario consultar el
     // contenido de archivos de texto y navegar entre el histórico de archivos que ha consultado.
-    // Para el diseño de la solución y su posterior implementación, consideremos los siguientes
-    // escenarios.
+
+    // Para el diseño de la solución y su posterior implementación, consideremos los siguientes escenarios.
+    
     // a) Escenario 1 (inicio del programa): No existen archivos en el histórico
+    // [1] Abrir archivo
+    // [2] Salir
+    // Seleccione una opción: 1
+    // Ingrese el nombre del archivo: hola.txt
+    //   Este es el archivo hola.txt
+    //   Ya se acabó el archivo hola.txt
+
     // b) Escenario 2: Existe un elemento en el histórico
+    // [1] Abrir archivo
+    // [2] Salir
+    // [3] Mostrar reciente     Reciente es hola.txt
+    // [4] Mostrar anterior     No hay anterior
+    // [5] Mostrar siguiente    No hay siguiente
+    // Seleccione una opción: 1
+    //   Ingrese el nombre del archivo: adios.txt
+    //   Este es el archivo adios.txt
+    //   Ya se acabó el archivo adios.txt
+
     // c) Escenario 3: Existen dos elementos en el histórico
+    // [1] Abrir archivo
+    // [2] Salir
+    // [3] Mostrar reciente     Reciente es adios.txt
+    // [4] Mostrar anterior     Anterior es hola.txt
+    // [5] Mostrar siguiente    No hay siguiente
+    // Seleccione una opción: 3
+    //   Archivo adios.txt
+    //   Este es el archivo adios.txt
+    //   Ya se acabó el archivo adios.txt
+
     // d) Escenario 4: Existen tres o más elementos en el histórico
+    // [1] Abrir archivo
+    // [2] Salir
+    // [3] Mostrar reciente         Reciente es hola.txt
+    // [4] Mostrar anterior         No hay anterior
+    // [5] Mostrar siguiente        Siguiente es adios.txt
+    // Seleccione una opción: 1     Estabamos en hola y abrimos nuevo, se perdió adios
+    //   Ingrese el nombre del archivo:  nuevo.txt
+    //   Este es el archivo nuevo.txt
+    //   Ya se acabó el archivo nuevo.txt
+
+    // [1] Abrir archivo
+    // [2] Salir
+    // [3] Mostrar reciente         Reciente es nuevo.txt
+    // [4] Mostrar anterior         Anterior es hola.txt
+    // [5] Mostrar siguiente        No hay siguiente
+    // Seleccione una opción: 1     El archivo abierto es igual a Anterior
+    //   Ingrese el nombre del archivo:  hola.txt
+    //   Este es el archivo nuevo.txt
+    //   Ya se acabó el archivo nuevo.txt
+
 }
