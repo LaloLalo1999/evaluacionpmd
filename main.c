@@ -171,35 +171,61 @@
     //   Este es el archivo nuevo.txt
     //   Ya se acabó el archivo nuevo.txt
 
+int menu(Historico);
+
 int main() {
-    file pf;
-    char buffer[300];
-    int opcion;
-    char nombre_archivo[20] = "historico.txt";
-    Historico historico;
-    historico = crear_historico(nombre_archivo);
+    file_t pf;
+    char nombre_archivo[50];
+    printf("Bienvenido al programa de archivos de texto\n");
+    Historico historico = nuevo_historico();
+
+    int opcion = menu(historico);
     do {
-        opcion = menu();
         switch (opcion) {
             case 1:
-                abrir_archivo(historico);
+                abrir_archivo(pf, historico);
                 break;
             case 2:
                 printf("Gracias por utilizar el programa");
+                break;
+            case 3:
+                mostrar_reciente(historico);
+                break;
+            case 4:
+                mostrar_anterior(historico);
+                break;
+            case 5:
+                mostrar_siguiente(historico);
+                break;
+            case 6:
+                mostrar_primero(historico);
+                break;
+            case 7:
+                mostrar_ultimo(historico);
                 break;
             default:
                 printf("Opción inválida");
                 break;
         }
     } while (opcion != 2);
+    return 0;
 }
 
 int menu(Historico historico) {
     int opcion;
-    printf("[1] Abrir archivo");
-    printf("[2] Salir");
-    if (historico->cantidad > 0) {
-        printf("[3] Mostrar reciente");
-        printf("[4] Mostrar anterior");
-        printf("[5] Mostrar siguiente");
+    int cant_archivos = cantidad_archivos(historico);
+    printf("Elige una opcion: \n");
+    printf("[1] Abrir archivo\n");
+    printf("[2] Salir\n");
+    if (cant_archivos > 0) {
+        printf("[3] Mostrar reciente\n");
+        printf("[4] Mostrar anterior\n");
+        printf("[5] Mostrar siguiente\n");
     }
+    if (cant_archivos >= 3){
+        printf("[6] Mostrar primero");
+        printf("[7] Mostrar último");}
+    printf("Seleccione una opcion: ");
+    scanf("%d", &opcion);
+    return opcion;
+}
