@@ -6,22 +6,12 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-typedef struct node {
-    char* data;
-    struct node* next;
-    struct node* prev;
-} node;
+typedef FILE* file;
 
-typedef struct list {
-    node* head;
-    node* tail;
-    node* current;
-} list;
+typedef struct strHistorico * Historico;
 
-list* create_list();
+Historico newHistorico();
 
-void add_node(list* l, char* data);
-
-void print_list(list* l);
+strArch();
 
 #endif // LIBRARY_H

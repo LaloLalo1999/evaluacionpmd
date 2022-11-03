@@ -27,5 +27,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "files.associations": {
+    "string.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }

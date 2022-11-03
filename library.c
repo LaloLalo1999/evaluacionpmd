@@ -3,27 +3,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct strNode {
-    Type data;
-    struct strNode * prev;
-    struct strNode * next;
+typedef struct strArch {
+    FILE* pf;
+    int posicion;
+    struct strArch * prev;
+    struct strArch * next;
 };
-typedef struct strNode * Node;
+typedef struct strArch * Arch;
 
-struct strList {
-    Node first;
-    Node last;
-    Node current;
-    unsigned int size;
-    size_t data_size;
+struct strHistorico {
+    Arch first;
+    Arch last;
+    Arch current;
+    unsigned int cantidad;
 };
 
-List createList() {
-    List list = (List) malloc(sizeof(struct strList));
-    list->first = NULL;
-    list->last = NULL;
-    list->current = NULL;
-    list->size = 0;
-    list->data_size = 0;
-    return list;
-}

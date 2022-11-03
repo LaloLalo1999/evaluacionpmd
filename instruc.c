@@ -131,6 +131,7 @@ int main() {
     // Ingrese el nombre del archivo: hola.txt
     //   Este es el archivo hola.txt
     //   Ya se acabó el archivo hola.txt
+    
 
     // b) Escenario 2: Existe un elemento en el histórico
     // [1] Abrir archivo
