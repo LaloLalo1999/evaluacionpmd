@@ -60,7 +60,7 @@ void abrir_archivo(Archivo a) {
         return;
     }
     char c;
-    while ((c = fgetc(a->data)) != EOF) {
+    while ((c = (char)fgetc(a->data)) != EOF) {
         printf("%c", c);
     }
     fclose(a->data);
@@ -120,5 +120,6 @@ void mostrar_ultimo(Historico h) {
 }
 
 int cantidad_archivos(Historico h) {
-    return h->cantidad;
+    int signedInt = (int)h->cantidad;
+    return signedInt;
 }

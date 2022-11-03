@@ -180,7 +180,8 @@ int main() {
     Historico historico = nuevo_historico();
     int opcion;
     do {
-        switch (opcion = menu(historico)) {
+        opcion = menu(historico);
+        switch (opcion) {
             case 1:
                 printf("Nombre del archivo: ");
                 scanf("%s", nombre_archivo);
@@ -208,7 +209,7 @@ int main() {
                 mostrar_ultimo(historico);
                 break;
             default:
-                printf("Opción inválida");
+                printf("Opcion invalida");
                 break;
         }
     } while (opcion != 2);
@@ -228,11 +229,8 @@ int menu(Historico historico) {
     }
     if (cant_archivos >= 3){
         printf("[6] Mostrar primero");
-        printf("[7] Mostrar último");}
-    char opcion_str[10];
+        printf("[7] Mostrar ultimo");}
     printf("Seleccione una opcion: ");
-    scanf("%s", &opcion_str[10]);
-    getchar();
-    opcion = strtol(opcion_str, NULL, 10);
+    scanf("%d", &opcion);
     return opcion;
 }
