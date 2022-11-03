@@ -117,4 +117,14 @@ int main() {
     //     fclose(pf);
     // }
     // return 0;
+
+    // Requisitos funcionales:
+    // Recordemos que nuestro objetivo es crear un programa que permita al usuario consultar el
+    // contenido de archivos de texto y navegar entre el histórico de archivos que ha consultado.
+    // Para el diseño de la solución y su posterior implementación, consideremos los siguientes
+    // escenarios.
+    // a) Escenario 1 (inicio del programa): No existen archivos en el histórico
+    // b) Escenario 2: Existe un elemento en el histórico
+    // c) Escenario 3: Existen dos elementos en el histórico
+    // d) Escenario 4: Existen tres o más elementos en el histórico
 }
