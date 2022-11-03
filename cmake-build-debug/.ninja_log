@@ -1,0 +1,5 @@
+# ninja log v5
+3	245	6891772176911831	build.ninja	85346788f3754e6
+3	111	6891760650088207	CMakeFiles/evaluacionpmd.dir/library.c.obj	6a4bd19fc5b74d1b
+112	262	6891760651553461	evaluacionpmd.exe	e50fcfed3efdfd13
+7	109	6891760650088207	CMakeFiles/evaluacionpmd.dir/main.c.obj	897dab016c9d9ab2

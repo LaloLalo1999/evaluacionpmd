@@ -15,7 +15,11 @@ typedef struct strHistorico * Historico;
 
 Historico nuevo_historico();
 
-void abrir_archivo(Archivo, Historico);
+Archivo nuevo_archivo(char* nombre);
+
+void agregar_archivo(Historico h, Archivo arch);
+
+void abrir_archivo(Archivo, Historico, char*);
 
 void mostrar_reciente(Historico);
 

@@ -6,7 +6,7 @@
 struct strArch {
     file_t data;
     char* nombre;
-    int i;
+    int index;
     struct strArch * anterior;
     struct strArch * siguiente;
 };
@@ -19,6 +19,16 @@ struct strHistorico {
     unsigned int cantidad;
 };
 
+Archivo nuevo_archivo(char* nombre) {
+    Archivo arch = malloc(sizeof(struct strArch));
+    arch->nombre = nombre;
+    arch->data = fopen(nombre, "r");
+    arch->index = 0;
+    arch->anterior = NULL;
+    arch->siguiente = NULL;
+    return arch;
+}
+
 Historico nuevo_historico() {
     Historico h = malloc(sizeof(struct strHistorico));
     h->primero = NULL;
@@ -28,8 +38,25 @@ Historico nuevo_historico() {
     return h;
 }
 
-void abrir_archivo(Archivo a, Historico h) {
-    a->data = fopen(a->nombre, "r");
+
+void agregar_archivo(Historico h, Archivo arch) {
+    if (h->primero == NULL) {
+        h->primero = arch;
+        h->ultimo = arch;
+        h->reciente = arch;
+    }
+    else {
+        h->ultimo->siguiente = arch;
+        arch->anterior = h->ultimo;
+        h->ultimo = arch;
+        h->reciente = arch;
+    }
+    arch->index = h->cantidad;
+    h->cantidad++;
+}
+
+void abrir_archivo(Archivo a, Historico h, char* nombre) {
+    a->data = fopen(nombre, "r");
     if (a->data == NULL) {
         printf("No se pudo abrir el archivo");
         return;
@@ -39,22 +66,6 @@ void abrir_archivo(Archivo a, Historico h) {
         printf("%c", c);
     }
     fclose(a->data);
-    if (h->cantidad == 0 && a != h->reciente) {
-        h->primero = a;
-        h->ultimo = a;
-        h->reciente = a;
-        h->cantidad++;
-        a->anterior = NULL;
-        a->siguiente = NULL;
-        a->i = 0;
-    } else if (h->cantidad > 0 && a != h->reciente) {
-        h->ultimo->siguiente = a;
-        a->anterior = h->ultimo;
-        h->ultimo = a;
-        h->reciente = a;
-        h->cantidad++;
-        a->i = h->cantidad - 1;
-    }
 }
 
 void mostrar_reciente(Historico h) {
@@ -63,7 +74,7 @@ void mostrar_reciente(Historico h) {
         return;
     }
     printf("Archivo: %s\n", h->reciente->nombre);
-    abrir_archivo(h->reciente, NULL);
+    abrir_archivo(h->reciente, NULL, h->reciente->nombre);
 }
 
 void mostrar_anterior(Historico h) {

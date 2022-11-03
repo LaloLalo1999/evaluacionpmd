@@ -1,7 +1,6 @@
 #include "library.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 // Antes de poder leer o escribir texto en un archivo, es necesario abrir el archivo o crearlo.
 // Para esto, en C podemos utilizar la función fopen()
@@ -178,12 +177,15 @@ int main() {
     char nombre_archivo[50];
     printf("Bienvenido al programa de archivos de texto\n");
     Historico historico = nuevo_historico();
-
     int opcion = menu(historico);
     do {
         switch (opcion) {
             case 1:
-                abrir_archivo(pf, historico);
+                printf("Nombre del archivo: ");
+                scanf("%s", nombre_archivo);
+                getchar();
+                Archivo a1 = nuevo_archivo(nombre_archivo);
+                agregar_archivo(historico, a1);
                 break;
             case 2:
                 printf("Gracias por utilizar el programa");

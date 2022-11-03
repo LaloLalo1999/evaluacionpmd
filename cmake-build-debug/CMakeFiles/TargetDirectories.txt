@@ -1,0 +1,3 @@
+C:/Users/eduar/OneDrive - ITESO/Pictures/Desktop/ITESO/Programacion Memoria Dinamica/Actividad2/evaluacionpmd/cmake-build-debug/CMakeFiles/evaluacionpmd.dir
+C:/Users/eduar/OneDrive - ITESO/Pictures/Desktop/ITESO/Programacion Memoria Dinamica/Actividad2/evaluacionpmd/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/eduar/OneDrive - ITESO/Pictures/Desktop/ITESO/Programacion Memoria Dinamica/Actividad2/evaluacionpmd/cmake-build-debug/CMakeFiles/rebuild_cache.dir

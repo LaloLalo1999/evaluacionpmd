@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 include_directories(.)
 
 add_executable(evaluacionpmd
-        archivos/datos.txt
+        datos.txt
         historico.txt
         library.c
         library.h
