@@ -6,13 +6,11 @@
 struct strArch {
     file_t data;
     char* nombre;
-    int index;
     struct strArch * anterior;
     struct strArch * siguiente;
 };
 
 struct strHistorico {
-    file_t historico;
     Archivo primero;
     Archivo ultimo;
     Archivo reciente;
@@ -22,8 +20,10 @@ struct strHistorico {
 Archivo nuevo_archivo(char* nombre) {
     Archivo arch = malloc(sizeof(struct strArch));
     arch->nombre = nombre;
-    arch->data = fopen(nombre, "r");
-    arch->index = 0;
+    arch->data = fopen(nombre, "w");
+    printf("Archivo %s creado\n", nombre);
+    printf("Archivo %s abierto\n", nombre);
+    scanf("Escribe ");
     arch->anterior = NULL;
     arch->siguiente = NULL;
     return arch;
@@ -55,8 +55,8 @@ void agregar_archivo(Historico h, Archivo arch) {
     h->cantidad++;
 }
 
-void abrir_archivo(Archivo a, Historico h, char* nombre) {
-    a->data = fopen(nombre, "r");
+void abrir_archivo(Archivo a) {
+    a->data = fopen(a->nombre, "r");
     if (a->data == NULL) {
         printf("No se pudo abrir el archivo");
         return;
@@ -74,7 +74,7 @@ void mostrar_reciente(Historico h) {
         return;
     }
     printf("Archivo: %s\n", h->reciente->nombre);
-    abrir_archivo(h->reciente, NULL, h->reciente->nombre);
+    abrir_archivo(h->reciente);
 }
 
 void mostrar_anterior(Historico h) {

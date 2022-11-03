@@ -19,7 +19,7 @@ Archivo nuevo_archivo(char* nombre);
 
 void agregar_archivo(Historico h, Archivo arch);
 
-void abrir_archivo(Archivo, Historico, char*);
+void abrir_archivo(Archivo);
 
 void mostrar_reciente(Historico);
 

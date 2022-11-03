@@ -173,7 +173,8 @@
 int menu(Historico);
 
 int main() {
-    file_t pf;
+    setbuf(stdin, NULL);
+    setbuf(stdout, NULL);
     char nombre_archivo[50];
     printf("Bienvenido al programa de archivos de texto\n");
     Historico historico = nuevo_historico();
@@ -186,6 +187,7 @@ int main() {
                 getchar();
                 Archivo a1 = nuevo_archivo(nombre_archivo);
                 agregar_archivo(historico, a1);
+                abrir_archivo(a1);
                 break;
             case 2:
                 printf("Gracias por utilizar el programa");
