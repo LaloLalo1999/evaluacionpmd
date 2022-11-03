@@ -178,9 +178,9 @@ int main() {
     char nombre_archivo[50];
     printf("Bienvenido al programa de archivos de texto\n");
     Historico historico = nuevo_historico();
-    int opcion = menu(historico);
+    int opcion;
     do {
-        switch (opcion) {
+        switch (opcion = menu(historico)) {
             case 1:
                 printf("Nombre del archivo: ");
                 scanf("%s", nombre_archivo);
@@ -229,7 +229,10 @@ int menu(Historico historico) {
     if (cant_archivos >= 3){
         printf("[6] Mostrar primero");
         printf("[7] Mostrar último");}
+    char opcion_str[10];
     printf("Seleccione una opcion: ");
-    scanf("%d", &opcion);
+    scanf("%s", &opcion_str[10]);
+    getchar();
+    opcion = strtol(opcion_str, NULL, 10);
     return opcion;
 }

@@ -1,7 +1,6 @@
 #include "library.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 struct strArch {
     file_t data;
@@ -51,7 +50,6 @@ void agregar_archivo(Historico h, Archivo arch) {
         h->ultimo = arch;
         h->reciente = arch;
     }
-    arch->index = h->cantidad;
     h->cantidad++;
 }
 
