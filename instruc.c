@@ -41,19 +41,80 @@ int main() {
     // El segundo argumento es el carácter que se quiere escribir.
     // su sintaxis es:
     // fputc(caracter, archivo);
+
     // Veamos un ejemplo en el que abrimos un archivo de texto para escritura y escribimos
     // una letra en él:
-    FILE* pf;
-    char letra = 'a';
-    pf = fopen("datos.txt", "w");
-    if (pf == NULL) {
-        printf("Error al abrir el archivo");
-        return 0;
-    }
-    else {
-        fputc(letra, pf);
-        fclose(pf);
-    }
+    // FILE* pf;
+    // char letra = 'a';
+    // pf = fopen("datos.txt", "w");
+    // if (pf == NULL) {
+    //     printf("Error al abrir el archivo");
+    //     return 0;
+    // }
+    // else {
+    //     fputc(letra, pf);
+    //     fclose(pf);
+    // }
+    // return 0;
 
-    return 0;
+    // Para leer un carácter de un archivo, deberemos guardarlo en una variable.
+    // En C podemos utilizar la función fgetc()
+    // Ejemplo:
+    // FILE* pf;
+    // char letra;
+    // pf = fopen("datos.txt", "r");
+    // if (pf == NULL) {
+    //     printf("Error al abrir el archivo");
+    //     return 0;
+    // }
+    // else {
+    //     letra = fgetc(pf);
+    //     printf("%c", letra);
+    //     fclose(pf);
+    // }
+    // return 0;
+
+    // Si queremos leer todos los caracteres que se encuentran almacenados en un archivo de
+    // texto, es necesario poder identificar cuando finaliza el archivo. Para esto, podemos utilizar
+    // la función feof(). Su sintaxis es:
+    // feof(apuntador_archivo);
+    // Esta función devuelve un valor distinto de cero si se ha llegado al final del archivo.
+    // Ejemplo:
+    // FILE* pf;
+    // char letra;
+    // pf = fopen("datos.txt", "r");
+    // if (pf == NULL) {
+    //     printf("Error al abrir el archivo");
+    //     return 0;
+    // }
+    // else {
+    //     while (!feof(pf)) {
+    //         letra = fgetc(pf);
+    //         printf("%c", letra);
+    //     }
+    //     fclose(pf);
+    // }
+    // return 0;
+
+    // Si no queremos leer y escribir a nivel carácter en los archivos, podemos utilizar las funciones fputs()
+    // y fgets() que permiten escribir y leer cadenas de texto. Veamos un ejemplo del uso de la función
+    // fgets() para leer el contenido de un archivo de texto.
+    // setbuf(stdin, NULL);
+    // setbuf(stdout, NULL);
+    // FILE* pf;
+    // char buffer[300];
+    // pf = fopen("datos.txt", "r");
+    // if (pf == NULL) {
+    //     printf("Error al abrir el archivo");
+    //     return 0;
+    // }
+    // else {
+    //     while (!feof(pf)) {
+    //         if (fgets(buffer, 296, pf) != NULL) {
+    //             printf("%s", buffer);
+    //         }
+    //     }
+    //     fclose(pf);
+    // }
+    // return 0;
 }
