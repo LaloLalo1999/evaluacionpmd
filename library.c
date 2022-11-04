@@ -22,11 +22,16 @@ Archivo nuevo_archivo(char* nombre) {
     arch->data = fopen(nombre, "w");
     printf("Archivo %s creado\n", nombre);
     printf("Archivo %s abierto\n", nombre);
-    scanf("Escribe ");
+    char texto[100];
+    printf("Ingrese texto: ");
+    scanf("%s", texto);
+    fprintf(arch->data, "%s", texto);
+    fclose(arch->data);
     arch->anterior = NULL;
     arch->siguiente = NULL;
     return arch;
 }
+
 
 Historico nuevo_historico() {
     Historico h = malloc(sizeof(struct strHistorico));
@@ -63,6 +68,7 @@ void abrir_archivo(Archivo a) {
     while ((c = (char)fgetc(a->data)) != EOF) {
         printf("%c", c);
     }
+    printf("\n");
     fclose(a->data);
 }
 

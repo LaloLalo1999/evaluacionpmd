@@ -1,5 +1,6 @@
 #include "library.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int menu(Historico);
 
@@ -50,7 +51,7 @@ int main() {
 int menu(Historico historico) {
     int opcion;
     int cant_archivos = cantidad_archivos(historico);
-    printf("Elige una opcion: \n");
+    printf("\nElige una opcion: \n");
     printf("[1] Abrir archivo\n");
     printf("[2] Salir\n");
     if (cant_archivos > 0) {
@@ -63,5 +64,6 @@ int menu(Historico historico) {
         printf("[7] Mostrar ultimo");}
     printf("Seleccione una opcion: ");
     scanf("%d", &opcion);
+    getchar();
     return opcion;
 }
