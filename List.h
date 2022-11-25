@@ -24,6 +24,8 @@ void listAdd(List, Type);
 
 Type listGet(List, int);
 
+int listSearch(List, Type);
+
 Type listRemove(List, int);
 
 #endif /* LIST_H_ */

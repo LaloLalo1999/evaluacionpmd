@@ -15,6 +15,7 @@ int main() {
     printf("Bienvenido al programa de archivos de texto\n");
     List historico = listCreate(sizeof(char[20]));
     int opcion;
+    int indicerec = 0;
     do {
         opcion = menu(historico);
         switch (opcion) {
@@ -22,21 +23,42 @@ int main() {
                 printf("Nombre del archivo: ");
                 scanf("%s", nombre_archivo);
                 getchar();
-                listAdd(historico, nombre_archivo);
+                if(listSearch(historico, nombre_archivo) == -1){
+                    listAdd(historico, nombre_archivo);
+                }
+                // listAdd(historico, nombre_archivo);
                 abrir_archivo(nombre_archivo);
+                indicerec = listSearch(historico, nombre_archivo);
                 break;
-            case 2:// Cerrar el programa
+            case 2:// Salir
                 printf("Gracias por utilizar el programa");
                 break;
-            case 3:
+            case 3:// Mostrar reciente
+                abrir_archivo(listGet(historico, indicerec));
                 break;
-            case 4:
+            case 4:// Mostrar anterior
+                indicerec--;
+                if(indicerec < 0){
+                    indicerec = 0;
+                    printf("No hay mas archivos anteriores\n");
+                }
+                abrir_archivo(listGet(historico, indicerec));
                 break;
-            case 5:
+            case 5:// Mostrar siguiente
+                indicerec++;
+                if(indicerec > listSize(historico) - 1){
+                    indicerec = listSize(historico) - 1;
+                    printf("No hay mas archivos siguientes\n");
+                }
+                abrir_archivo(listGet(historico, indicerec));
                 break;
-            case 6:
+            case 6: // Mostrar primero
+                indicerec = 0;
+                abrir_archivo(listGet(historico, indicerec));
                 break;
-            case 7:
+            case 7:// Mostrar ultimo
+                indicerec = listSize(historico) - 1;
+                abrir_archivo(listGet(historico, indicerec));
                 break;
             default:
                 printf("Opcion invalida");
@@ -74,17 +96,17 @@ void abrir_archivo(char nombre_archivo[20]) {
         printf("Archivo creado\n");
         printf("Ingrese el texto: ");
         char texto[100];
-        getchar();
-        scanf("%s", texto);
-        getchar();
+        // getchar();
+        fgets(texto, sizeof(texto), stdin);
         // fclose(archivo);
         archivo = fopen(nombre_archivo, "w");
-        char *p = &texto[0];
-        while (*p != '\0') {
-            letra = *p;
-            printf("%c", letra);
+        unsigned int contador = 0;
+        // char *p = &texto[0];
+        while (contador <= strlen(texto)) {
+            letra = texto[contador];
             fputc(letra, archivo);
-            p++;
+            // p++;
+            contador++;
         }
     } else {
         printf("Archivo abierto\n");

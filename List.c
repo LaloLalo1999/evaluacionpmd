@@ -80,6 +80,20 @@ Type listGet(List lt, int p){
 	return NULL;
 }
 
+int listSearch(List lt, Type data){
+	if(lt!=NULL){
+		Node current=lt->first;
+		int i=0;
+		while(current!=NULL){
+			if(memcmp(current->data, data, lt->data_size)==0)
+				return i;
+			current=current->next;
+			i++;
+		}
+	}
+	return -1;
+}
+
 Type listRemove(List lt, int p){
 	if(lt!=NULL){
 		//Validar que p se encuentre en el rango v�lido
