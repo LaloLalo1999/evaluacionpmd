@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/eduar/OneDrive - ITESO/Pictures/Desktop/ITESO/Programacion Memoria Dinamica/Actividad2/evaluacionpmd",
-      "program": "c:/Users/eduar/OneDrive - ITESO/Pictures/Desktop/ITESO/Programacion Memoria Dinamica/Actividad2/evaluacionpmd/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/workspaces/evaluacionpmd",
+      "program": "/workspaces/evaluacionpmd/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

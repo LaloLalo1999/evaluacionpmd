@@ -1,20 +1,21 @@
-#include "library.h"
+// #include "library.h"
+#include "List.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int menu(Historico);
+int menu(List historico);
 
 int main() {
     setbuf(stdin, NULL);
     setbuf(stdout, NULL);
     char nombre_archivo[50];
     printf("Bienvenido al programa de archivos de texto\n");
-    Historico historico = nuevo_historico();
+    List historico = listCreate()
     int opcion;
     do {
         opcion = menu(historico);
         switch (opcion) {
-            case 1:
+            case 1:// 
                 printf("Nombre del archivo: ");
                 scanf("%s", nombre_archivo);
                 getchar();
@@ -22,23 +23,18 @@ int main() {
                 agregar_archivo(historico, a1);
                 abrir_archivo(a1);
                 break;
-            case 2:
+            case 2://Cerrar el programa
                 printf("Gracias por utilizar el programa");
                 break;
             case 3:
-                mostrar_reciente(historico);
                 break;
             case 4:
-                mostrar_anterior(historico);
                 break;
             case 5:
-                mostrar_siguiente(historico);
                 break;
             case 6:
-                mostrar_primero(historico);
                 break;
             case 7:
-                mostrar_ultimo(historico);
                 break;
             default:
                 printf("Opcion invalida");
@@ -48,9 +44,11 @@ int main() {
     return 0;
 }
 
-int menu(Historico historico) {
+int menu(List historico) {
     int opcion;
-    int cant_archivos = cantidad_archivos(historico);
+
+    int opcion;
+    unsigned int cant_archivos = listSize(historico);
     printf("\nElige una opcion: \n");
     printf("[1] Abrir archivo\n");
     printf("[2] Salir\n");
