@@ -45,13 +45,13 @@ void listAdd(List lt, Type data){
 	if(lt!=NULL){
 		Node new=newNode(data, lt->data_size);
 		if(listSize(lt)==0){
-			//La lista esta vacía
+			//La lista esta vacï¿½a
 			lt->first=new;
 			lt->last=new;
 			lt->size=1;
 		}
 		else{
-			//La lista NO esta vacía
+			//La lista NO esta vacï¿½a
 			lt->last->next=new;
 			new->prior=lt->last;
 			lt->last=new;
@@ -62,7 +62,7 @@ void listAdd(List lt, Type data){
 
 Type listGet(List lt, int p){
 	if(lt!=NULL){
-		//Validar que p se encuentre en el rango válido
+		//Validar que p se encuentre en el rango vï¿½lido
 		if((p>=0)&&(p<lt->size)){
 			Node current=lt->first;
 			int i=0;
@@ -82,11 +82,11 @@ Type listGet(List lt, int p){
 
 Type listRemove(List lt, int p){
 	if(lt!=NULL){
-		//Validar que p se encuentre en el rango válido
+		//Validar que p se encuentre en el rango vï¿½lido
 		if((p>=0)&&(p<lt->size)){
 			Node current=lt->first;
 			if(lt->size==1){
-				//La lista tiene un único elemento
+				//La lista tiene un ï¿½nico elemento
 
 				//Para no perder en donde esta: data
 				Type temp=lt->first->data;
@@ -101,9 +101,9 @@ Type listRemove(List lt, int p){
 				return temp;
 			}
 			else{
-				//Cuando tenemos dos o más elementos
+				//Cuando tenemos dos o mï¿½s elementos
 
-				//¿Vamos a eliminar el primer elemento?
+				//ï¿½Vamos a eliminar el primer elemento?
 				if(p==0){
 					//Para no perder a data
 					Type temp_data=lt->first->data;
@@ -122,7 +122,7 @@ Type listRemove(List lt, int p){
 					return temp_data;
 
 				}
-				//¿Vamos a eliminar el último elemento?
+				//ï¿½Vamos a eliminar el ï¿½ltimo elemento?
 				if(p==lt->size-1){
 
 
@@ -138,8 +138,8 @@ Type listRemove(List lt, int p){
 
 				Type data=malloc(lt->data_size);
 				memcpy(data, current->data, lt->data_size);
+				return data;
 			}
-			return data;
 		}
 	}
 	return NULL;

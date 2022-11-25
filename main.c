@@ -74,17 +74,20 @@ void abrir_archivo(char nombre_archivo[20]) {
         printf("Archivo creado\n");
         printf("Ingrese el texto: ");
         char texto[100];
+        getchar();
         scanf("%s", texto);
         getchar();
-        fclose(archivo);
+        // fclose(archivo);
         archivo = fopen(nombre_archivo, "w");
-        while (texto != NULL) {
-            letra = texto[0];
+        char *p = &texto[0];
+        while (*p != '\0') {
+            letra = *p;
+            printf("%c", letra);
             fputc(letra, archivo);
-            texto++;
+            p++;
         }
     } else {
-        printf("Archivo abierto");
+        printf("Archivo abierto\n");
         while(1){
             letra=fgetc(archivo);
             if (feof(archivo)) break;
